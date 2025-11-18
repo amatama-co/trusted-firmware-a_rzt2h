@@ -77,8 +77,8 @@
 #define MAX_XLAT_TABLES			U(8)
 #define MAX_MMAP_REGIONS		U(12)
 #elif IMAGE_BL31
-#define MAX_XLAT_TABLES			U(5)
-#define MAX_MMAP_REGIONS		U(7)
+#define MAX_XLAT_TABLES			U(20)
+#define MAX_MMAP_REGIONS		U(20)
 #endif
 
 #define PLAT_VIRT_ADDR_SPACE_SIZE	(1ULL << 36)

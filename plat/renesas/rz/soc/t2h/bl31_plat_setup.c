@@ -16,7 +16,6 @@
 #include <rz_private.h>
 #include <rz_soc_def.h>
 
-
 static console_t rzt2h_bl31_console;
 static bl2_to_bl31_params_mem_t from_bl2;
 
@@ -67,6 +66,18 @@ void bl31_plat_arch_setup(void)
 				MT_DEVICE | MT_RW | MT_SECURE),
 		MAP_REGION_FLAT(RZT2H_GICD_BASE, RZT2H_GICD_SIZE,
 				MT_DEVICE | MT_RW | MT_SECURE),
+		MAP_REGION_FLAT(RZT2H_XSPI0_MEMORY_MAP_BASE, RZT2H_XSPI_MEMORY_MAP_SIZE,
+                MT_MEMORY | MT_RW | MT_SECURE),
+		MAP_REGION_FLAT(RZT2H_XSPI1_MEMORY_MAP_BASE, RZT2H_XSPI_MEMORY_MAP_SIZE,
+				MT_MEMORY | MT_RW | MT_SECURE),
+		MAP_REGION_FLAT(0x20000000, 0x1000000,             // AXIS TCM CPU0
+				MT_MEMORY | MT_RW | MT_SECURE),
+		MAP_REGION_FLAT(0x21000000, 0x1000000,             // AXIS TCM CPU1
+				MT_DEVICE | MT_RW | MT_SECURE),
+		MAP_REGION_FLAT(ULL(0x10000000), ULL(0x200000),    // SYSRAM
+				MT_MEMORY | MT_RW | MT_SECURE),
+		MAP_REGION_FLAT(ULL(0x81000000), ULL(0x1000000),   // Module Stop
+				MT_MEMORY | MT_RW | MT_SECURE),
 		{0}
 	};
 
