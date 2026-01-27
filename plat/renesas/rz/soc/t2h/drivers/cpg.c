@@ -174,12 +174,16 @@ static void cpg_mstop_xspi1(void)
 static void cpg_mstop_scif(void)
 {
 	volatile uint32_t dummy;
+	uint32_t bit = MSTPCRA_MSTPCRA08;	/* default SCIF0 */
+
+	if (RZT2H_SCIF_BASE == UL(0x80005400))
+		bit = MSTPCRA_MSTPCRA09;	/* SCIF1 */
 
 	/* Enable write to Module Stop */
 	sys_base_unlock(PRCRx_LOW_POWER);
 
 	/* Clear bit to release SCIF0 from Module Stop State  */
-	mmio_write_32(MSTPCRA, mmio_read_32(MSTPCRA) & (~BIT_32(MSTPCRA_MSTPCRA08)));
+	mmio_write_32(MSTPCRA, mmio_read_32(MSTPCRA) & (~BIT_32(bit)));
 	dummy = mmio_read_32(MSTPCRA);
 	dummy = mmio_read_32(MSTPCRA);
 	dummy = mmio_read_32(MSTPCRA);
