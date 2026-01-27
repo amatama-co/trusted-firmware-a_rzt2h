@@ -242,13 +242,13 @@ static void pfc_xspi1_setup(void)
 
 static void pfc_scif_setup(void)
 {
-	static const PORT_SETTINGS sci0_pins[] = {
+	static const PORT_SETTINGS sci1_pins[] = {
 		/* Port, pin, func#, drive control */
-		{27, 5, 20, DRCTL_SRm0_MSK | DRCTL_Em0_DRIVE_HI_MSK},	/* TXD0 */
-		{27, 4, 20, DRCTL_SRm0_MSK | DRCTL_Em0_DRIVE_HI_MSK},	/* RXD0 */
+		{11, 1, 20, DRCTL_SRm0_MSK | DRCTL_Em0_DRIVE_HI_MSK},	/* TXD1 */
+		{11, 0, 20, DRCTL_SRm0_MSK | DRCTL_Em0_DRIVE_HI_MSK},	/* RXD1 */
 	};
 
-	set_port_pins(sci0_pins, PIN_COUNT(sci0_pins));
+	set_port_pins(sci1_pins, PIN_COUNT(sci1_pins));
 }
 
 
