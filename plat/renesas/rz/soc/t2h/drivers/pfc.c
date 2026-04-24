@@ -244,8 +244,8 @@ static void pfc_scif_setup(void)
 {
 	static const PORT_SETTINGS sci1_pins[] = {
 		/* Port, pin, func#, drive control */
-		{11, 1, 20, DRCTL_SRm0_MSK | DRCTL_Em0_DRIVE_HI_MSK},	/* TXD1 */
-		{11, 0, 20, DRCTL_SRm0_MSK | DRCTL_Em0_DRIVE_HI_MSK},	/* RXD1 */
+		{18, 4, 20, DRCTL_SRm0_MSK | DRCTL_Em0_DRIVE_HI_MSK},	/* TXD1 */
+		{18, 3, 20, DRCTL_SRm0_MSK | DRCTL_Em0_DRIVE_HI_MSK},	/* RXD1 */
 	};
 
 	set_port_pins(sci1_pins, PIN_COUNT(sci1_pins));
